@@ -123,7 +123,7 @@ function renderComparisonPlot(plotid, benchmarks, exes, enviros, baseline, chart
                         continue;
                     }
                 }
-                series.push({'label': exe + " @ " + env});
+                series.push({'label': enviros.count > 1 ? exe + " @ " + env : exe });
                 var customdata = [];
                 var benchcounter = 0;
                 if (baseline !== "none") {
@@ -165,7 +165,7 @@ function renderComparisonPlot(plotid, benchmarks, exes, enviros, baseline, chart
             for (var j in enviros) {
                 var exe = $("label[for='exe_" + exes[i] + "']").text();
                 var env = $("label[for='env_" + enviros[j] + "']").text();
-                ticks.push(exe + " @ " + env);
+                ticks.push(enviros.count > 1 ? exe + " @ " + env : exe);
             }
         }
         // Add data
