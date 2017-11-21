@@ -173,7 +173,7 @@ def comparison(request):
         checkedbenchmarks = Benchmark.objects.filter(
             benchmark_type="C", default_on_comparison=True)
 
-    charts = ['normal bars', 'stacked bars', 'relative bars']
+    charts = ['normal bars', 'stacked bars', 'stacked bars executables', 'relative bars']
     # Don't show relative charts as an option if there is only one executable
     # Relative charts need normalization
     if len(executables) == 1:
