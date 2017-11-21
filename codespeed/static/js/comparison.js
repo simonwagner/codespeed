@@ -351,10 +351,7 @@ function renderComparisonPlot(plotid, benchmarks, exes, enviros, baseline, chart
             labels.push(series[l].label.length);
         }
 
-        var offset = 55 + Math.max.apply( Math, labels ) * 5.4;
-        plotoptions.legend.xoffset = -offset;
-        $("#" + plotid).css("margin-right", offset + 10);
-        if (w + offset > plotwidth) { w = plotwidth - offset -20; }
+        plotoptions.legend.placement = "outsideGrid";
     } else if (!horizontal && ticks.length <= 2) {
         plotoptions.legend = {show: true, location: 'se'};
     }
