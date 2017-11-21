@@ -342,9 +342,7 @@ function renderComparisonPlot(plotid, benchmarks, exes, enviros, baseline, chart
     plotoptions.axesDefaults.tickOptions = {fontFamily:'Arial'};
 
     // determine conditions for rendering the legend outside the plot area
-    var offplot = false;
-    if (!horizontal && series.length > 4) { offplot = true; }
-    else if (horizontal && series.length > 2*ticks.length) { offplot = true; }
+    var offplot = true;
 
     if (offplot) {
         // Move legend outside plot area to unclutter
