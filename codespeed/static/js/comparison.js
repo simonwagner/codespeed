@@ -226,6 +226,7 @@ function renderComparisonPlot(plotid, benchmarks, exes, enviros, baseline, chart
     var w = 0;
     var h = 0;
     var plotoptions = [];
+
     if (horizontal) {
         plotoptions = {
             title: title,
@@ -340,6 +341,16 @@ function renderComparisonPlot(plotid, benchmarks, exes, enviros, baseline, chart
     plotoptions.grid = {borderColor: '#9DADC6', shadow: false, drawBorder: true};
     plotoptions.seriesDefaults.shadow = false;
     plotoptions.axesDefaults.tickOptions = {fontFamily:'Arial'};
+    var tooltipContentEditor = function(str, seriesIndex, pointIndex, plot) {
+        // display series_label, x-axis_tick, y-axis value
+        return "<table class=\"jqplot-highlighter\"><tr><td>" + plot.series[seriesIndex]["label"] + "</td></tr></table>";
+    };
+    plotoptions.highlighter = {
+        show:true,
+        showMarker: false,
+        tooltipLocation: "sw",
+        tooltipContentEditor: tooltipContentEditor
+    };
 
     // determine conditions for rendering the legend outside the plot area
     var offplot = true;
